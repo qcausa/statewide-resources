@@ -6,6 +6,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { CategoryFilter } from "./_components/CategoryFilter";
 import { ExportButton } from "./_components/ExportButton";
+import { LoadingSpinner } from "./_components/LoadingSpinner";
 import { MondayCard } from "./_components/MondayCard";
 
 type MondayColumn = {
@@ -102,7 +103,7 @@ export default function MondayPage() {
   if (loading) {
     return (
       <div className="container py-8">
-        <p>Loading...</p>
+        <LoadingSpinner />
       </div>
     );
   }
@@ -110,14 +111,21 @@ export default function MondayPage() {
   return (
     <div className="container bg-slate-50 py-8">
       <div ref={contentRef} className="flex flex-col gap-10">
-        <div className="mb-6 flex gap-20">
+        <div className="mb-6 flex justify-between">
           <div className="flex flex-col">
-            <h1 className="text-3xl font-bold">Monday.com Board Items</h1>
+            <img
+              src="https://www.floridaroadjobs.com/wp-content/uploads/wfd-logo.svg"
+              alt="Florida Road Jobs Logo"
+              className="mb-6 h-16 w-auto self-start"
+            />
+            <h1 className="text-3xl font-bold">
+              Contractor Resource Guide & Workforce Partners Directory
+            </h1>
             {boardDescription && (
               <p className="mt-2 text-gray-600">{boardDescription}</p>
             )}
           </div>
-          <div className="mt-4 flex justify-end print:hidden">
+          <div className="print:hidden">
             <ExportButton contentRef={contentRef} />
           </div>
         </div>
