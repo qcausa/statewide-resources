@@ -1,0 +1,45 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+"use client";
+
+import * as React from "react";
+
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
+
+import Link from "next/link";
+
+export default function NavigationMenuDemo() {
+  return (
+    <NavigationMenu>
+      <NavigationMenuList className="flex items-center gap-6">
+        <NavigationMenuItem>
+          <Link href="/listings" legacyBehavior passHref>
+            <NavigationMenuLink className="text-sm text-gray-400 transition-colors hover:text-gray-200">
+              Collections
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        {/* <NavigationMenuItem>
+          <Link href="/supabase/posts" legacyBehavior passHref>
+            <NavigationMenuLink className="text-sm text-gray-400 transition-colors hover:text-gray-200">
+              Supabase Posts
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/demo/supabaseclient" legacyBehavior passHref>
+            <NavigationMenuLink className="text-sm text-gray-400 transition-colors hover:text-gray-200">
+              Supabase Data - Client
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem> */}
+      </NavigationMenuList>
+    </NavigationMenu>
+  );
+}
